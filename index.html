@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background Generator</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body id="gradient">
+    <h1>Background Generator</h1>
+    <div class="container">
+      <input type="color" class="box-1" />
+      <input type="color" class="box-2" />
+      <h2>Current CSS Background</h2>
+      <h3></h3>
+    </div>
+
+    <script>
+      var css = document.querySelector("h3");
+      var color1 = document.querySelector(".box-1");
+      var color2 = document.querySelector(".box-2");
+      var body = document.getElementById("gradient");
+
+      const setGradient = () => {
+        body.style.background =
+          "linear-gradient(to right," +
+          color1.value +
+          ", " +
+          color2.value +
+          ")";
+
+        css.textContent = body.style.background + ";";
+      };
+
+      color1.addEventListener("input", setGradient);
+      color2.addEventListener("input", setGradient);
+    </script>
+  </body>
+</html>
